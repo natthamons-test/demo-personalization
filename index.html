@@ -6,6 +6,18 @@
   
   <!-- Interactions SDK -->
   <script src="https://cdn.c360a.salesforce.com/beacon/c360a/9aeb7cbf-adb5-445e-a568-fafbedf92597/scripts/c360a.min.js" async></script>
+
+    <script>
+    SalesforceInteractions.init({
+      consents: [{
+        provider: 'Test Provider',
+        purpose: 'Tracking',
+        status: SalesforceInteractions.ConsentStatus.OptIn
+      }],
+    }).then(() => { 
+      console.log('init successful');
+    });
+  </script>
   
   <!-- Styling -->
   <style>
@@ -97,4 +109,5 @@
   </div>
 </body>
 </html>
+
 
