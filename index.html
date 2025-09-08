@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Test Form with Interactions SDK</title>
-  
+  <title>My Website</title>
+
   <!-- Interactions SDK -->
   <script src="https://cdn.c360a.salesforce.com/beacon/c360a/9aeb7cbf-adb5-445e-a568-fafbedf92597/scripts/c360a.min.js"></script>
 
-    <script>
+  <script>
     SalesforceInteractions.init({
       consents: [{
         provider: 'Test Provider',
         purpose: 'Tracking',
         status: SalesforceInteractions.ConsentStatus.OptIn
       }],
-    }).then(() => { 
+    }).then(() => {
       console.log('init successful');
     });
   </script>
-  
+
   <!-- Styling -->
   <style>
     body {
@@ -26,18 +27,59 @@
       background-color: #f5f5f5;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       min-height: 100vh;
       margin: 0;
+      padding-top: 50px;
     }
 
+    /* Banner */
+    .banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0070d2;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      box-sizing: border-box;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .banner h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .banner .buttons button {
+      background-color: #fff;
+      color: #0070d2;
+      border: none;
+      border-radius: 5px;
+      padding: 6px 12px;
+      margin-left: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    .banner .buttons button:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* Form */
     .form-container {
       background-color: #fff;
       padding: 30px 40px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       max-width: 400px;
       width: 100%;
+      margin-top: 100px; /* ให้ฟอร์มไม่ซ้อนกับ banner */
     }
 
     h1 {
@@ -70,7 +112,7 @@
       outline: none;
     }
 
-    button {
+    button[type="submit"] {
       width: 100%;
       padding: 12px;
       background-color: #0070d2;
@@ -82,12 +124,24 @@
       transition: background-color 0.2s;
     }
 
-    button:hover {
+    button[type="submit"]:hover {
       background-color: #005fb2;
     }
   </style>
 </head>
+
 <body>
+  <!-- Banner -->
+  <div class="banner">
+    <h2>My Website</h2>
+    <div class="buttons">
+      <button onclick="window.location.href='index.html'">Home</button>
+      <button onclick="window.location.href='contact.html'">Contact Us</button>
+    </div>
+  </div>
+  <div id="mcp-banner"></div>
+
+  <!-- Form -->
   <div class="form-container">
     <h1>Customer Information Form</h1>
 
@@ -108,7 +162,5 @@
     </form>
   </div>
 </body>
+
 </html>
-
-
-
