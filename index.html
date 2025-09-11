@@ -6,17 +6,15 @@
   <title>My Website</title>
 
   <!-- Interactions SDK -->
-  <script src="https://cdn.c360a.salesforce.com/beacon/c360a/9aeb7cbf-adb5-445e-a568-fafbedf92597/scripts/c360a.min.js"></script>
+  <script
+    src="https://cdn.c360a.salesforce.com/beacon/c360a/9aeb7cbf-adb5-445e-a568-fafbedf92597/scripts/c360a.min.js"></script>
 
   <script>
-    SalesforceInteractions.init({
-      consents: [{
-        provider: 'Test Provider',
-        purpose: 'Tracking',
-        status: SalesforceInteractions.ConsentStatus.OptIn
-      }],
-    }).then(() => {
-      console.log('init successful');
+    document.getElementById("testForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent reload
+
+      // Alert
+      alert("Form submitted successfully without refreshing the page!");
     });
   </script>
 
@@ -79,7 +77,8 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       max-width: 400px;
       width: 100%;
-      margin-top: 100px; /* ให้ฟอร์มไม่ซ้อนกับ banner */
+      margin-top: 100px;
+      /* ให้ฟอร์มไม่ซ้อนกับ banner */
     }
 
     h1 {
