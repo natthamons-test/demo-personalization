@@ -216,8 +216,11 @@
   <script>
     // Sample cart array
     let cart = [
-      { id: "P001", name: "Wireless Headphones", price: 59.99, quantity: 2 },
-      { id: "P002", name: "Mechanical Keyboard", price: 89.99, quantity: 1 }
+      { id: "headphones", name: "Wireless Headphones", price: 59.99, quantity: 2 },
+      { id: "keyboard", name: "Mechanical Keyboard", price: 89.99, quantity: 1 },
+      { id: "mouse", name: "Gaming Mouse", price: 39.99, quantity: 1 },
+      { id: "smartwatch", name: "Bluetooth Speaker", price: 79.99, quantity: 1 },
+      { id: "speaker", name: "Smartwatch", price: 129.99, quantity: 1 },
     ];
 
     const cartList = document.getElementById('cartList');
@@ -232,7 +235,7 @@
         const div = document.createElement('div');
         div.className = 'cart-item';
         div.innerHTML = `
-          <div class="item-name">${item.name}</div>
+          <div class="item-name" data-product-id=${item.id}>${item.name}</div>
           <input class="item-quantity" type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
           <div class="item-price">$${(item.price * item.quantity).toFixed(2)}</div>
           <button onclick="removeItem(${index})">Remove</button>
@@ -273,6 +276,5 @@
 </body>
 
 </html>
-
 
 
