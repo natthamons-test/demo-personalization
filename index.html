@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Homepage</title>
-  <script
-    defer src="https://cdn.c360a.salesforce.com/beacon/c360a/07b49b96-460a-457b-b129-42d14673c933/scripts/c360a.min.js?version=latest"></script>
+  <script defer
+    src="https://cdn.c360a.salesforce.com/beacon/c360a/07b49b96-460a-457b-b129-42d14673c933/scripts/c360a.min.js?version=latest"></script>
 
   <style>
     body {
@@ -60,14 +60,16 @@
     }
 
 
-.cart {
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  margin-left: 20px; /* เว้นระยะจาก nav-buttons */
-  white-space: nowrap; /* ป้องกัน cart หดบรรทัด */
-}
+    .cart {
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+      margin-left: 20px;
+      /* เว้นระยะจาก nav-buttons */
+      white-space: nowrap;
+      /* ป้องกัน cart หดบรรทัด */
+    }
 
     .cart-count {
       background-color: red;
@@ -156,6 +158,62 @@
       color: #333;
     }
 
+    /* Top Seller Section */
+    .top-sellers {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .top-sellers h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #0070d2;
+    }
+
+    /* Carousel Container */
+    .carousel {
+      overflow: hidden;
+      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Carousel Track (flex row) */
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    /* Cards inside carousel */
+    .top-seller-card {
+      min-width: 100%;
+      box-sizing: border-box;
+      background: #fff;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .top-seller-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .top-seller-card h3 {
+      margin: 15px 0 10px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .top-seller-card p {
+      font-size: 14px;
+      color: #555;
+      padding: 0 15px;
+    }
+
+
     /* Footer */
     footer {
       background-color: #0070d2;
@@ -207,10 +265,50 @@
     </div>
   </section>
 
+  <!-- Top Seller Products Section -->
+  <section class="top-sellers">
+    <h2>🔥 Top Seller Products</h2>
+    <div class="carousel">
+      <div class="carousel-track">
+        <div class="top-seller-card">
+          <img src="https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg" alt="Wireless Headphones">
+          <h3>Wireless Headphones</h3>
+          <p>Best sound quality with noise cancellation.</p>
+        </div>
+        <div class="top-seller-card">
+          <img src="https://images.pexels.com/photos/2765871/pexels-photo-2765871.jpeg" alt="Mechanical Keyboard">
+          <h3>Mechanical Keyboard</h3>
+          <p>Durable switches and RGB backlight for gamers.</p>
+        </div>
+        <div class="top-seller-card">
+          <img src="https://images.pexels.com/photos/845434/pexels-photo-845434.jpeg" alt="Smartwatch">
+          <h3>Smartwatch</h3>
+          <p>Track your fitness and stay connected all day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- Footer -->
   <footer>
     &copy; 2025 My Electronics Store. All Rights Reserved.
   </footer>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.top-seller-card');
+    let index = 0;
+
+    function showNextSlide() {
+      index = (index + 1) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    // auto slide every 3 seconds
+    setInterval(showNextSlide, 3000);
+  </script>
+
 </body>
 
 </html>
