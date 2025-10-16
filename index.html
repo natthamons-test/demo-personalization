@@ -32,241 +32,88 @@
       flex-wrap: wrap;
     }
 
-    .banner h2 {
-      margin: 0;
-      font-size: 20px;
-      white-space: nowrap;
-    }
+    .banner h2 { margin: 0; font-size: 20px; white-space: nowrap; }
 
-    .nav-buttons {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+    .nav-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
 
     .nav-buttons button {
-      background-color: #fff;
-      color: #0070d2;
-      border: none;
-      border-radius: 5px;
-      padding: 6px 12px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.2s;
+      background-color: #fff; color: #0070d2; border: none; border-radius: 5px;
+      padding: 6px 12px; cursor: pointer; font-weight: bold; transition: background-color 0.2s;
     }
 
-    .nav-buttons button:hover {
-      background-color: #e0e0e0;
-    }
+    .nav-buttons button:hover { background-color: #e0e0e0; }
 
     /* Search box */
     .search {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex: 1 1 320px;
-      /* ขยายกินพื้นที่ตรงกลาง */
-      min-width: 240px;
+      display: flex; gap: 8px; align-items: center;
+      flex: 1 1 320px; min-width: 240px;
     }
 
     .search input {
-      width: 100%;
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: none;
-      outline: none;
+      width: 100%; padding: 8px 12px; border-radius: 6px; border: none; outline: none;
     }
 
     .search button {
-      background-color: #ffb75c;
-      color: #1a1a1a;
-      border: none;
-      border-radius: 6px;
-      padding: 8px 14px;
-      cursor: pointer;
-      font-weight: bold;
+      background-color: #ffb75c; color: #1a1a1a; border: none; border-radius: 6px;
+      padding: 8px 14px; cursor: pointer; font-weight: bold;
     }
 
-    .search button:hover {
-      background-color: #ffa531;
-    }
+    .search button:hover { background-color: #ffa531; }
 
-    .cart {
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      position: relative;
-      margin-left: 4px;
-      white-space: nowrap;
-    }
+    .cart { font-size: 16px; font-weight: bold; cursor: pointer; position: relative; margin-left: 4px; white-space: nowrap; }
 
     .cart-count {
-      background-color: red;
-      color: #fff;
-      border-radius: 50%;
-      padding: 2px 6px;
-      font-size: 12px;
-      position: absolute;
-      top: -8px;
-      right: -12px;
+      background-color: red; color: #fff; border-radius: 50%; padding: 2px 6px; font-size: 12px;
+      position: absolute; top: -8px; right: -12px;
     }
 
-    /* Hero Section */
     .hero {
       height: 500px;
       background: url('https://images.pexels.com/photos/374074/pexels-photo-374074.jpeg') center/cover no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      text-align: center;
+      display: flex; justify-content: center; align-items: center; color: #fff; text-align: center;
       margin-top: 60px;
-      /* Banner height */
     }
 
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    }
+    .hero h1 { font-size: 48px; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0,0,0,.5); }
+    .hero p { font-size: 20px; margin-bottom: 30px; text-shadow: 1px 1px 3px rgba(0,0,0,.5); }
 
     .hero button {
-      padding: 15px 30px;
-      background-color: #ff7a00;
-      border: none;
-      border-radius: 6px;
-      color: #fff;
-      font-size: 18px;
-      cursor: pointer;
-      transition: background-color 0.3s;
+      padding: 15px 30px; background-color: #ff7a00; border: none; border-radius: 6px;
+      color: #fff; font-size: 18px; cursor: pointer; transition: background-color .3s;
     }
+    .hero button:hover { background-color: #e56600; }
 
-    .hero button:hover {
-      background-color: #e56600;
-    }
-
-    /* Categories Section */
     .categories {
-      max-width: 1200px;
-      margin: 50px auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 0 20px;
+      max-width: 1200px; margin: 50px auto; display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 0 20px;
     }
 
     .category-card {
-      background-color: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-      cursor: pointer;
+      background-color: #fff; border-radius: 10px; overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,.1); transition: transform .3s; cursor: pointer;
     }
+    .category-card:hover { transform: translateY(-5px); }
+    .category-card img { width: 100%; height: 200px; object-fit: cover; }
+    .category-card h3 { text-align: center; padding: 15px; font-size: 20px; color: #333; }
 
-    .category-card:hover {
-      transform: translateY(-5px);
-    }
+    .top-sellers { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+    .top-sellers h2 { text-align: center; font-size: 28px; margin-bottom: 30px; color: #0070d2; }
 
-    .category-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+    .carousel { overflow: hidden; position: relative; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+    .carousel-track { display: flex; transition: transform .5s ease-in-out; }
 
-    .category-card h3 {
-      text-align: center;
-      padding: 15px;
-      font-size: 20px;
-      color: #333;
-    }
+    .top-seller-card { min-width: 100%; box-sizing: border-box; background: #fff; text-align: center; padding-bottom: 20px; }
+    .top-seller-card img { width: 100%; height: 280px; object-fit: cover; }
+    .top-seller-card h3 { margin: 15px 0 10px; font-size: 20px; color: #333; }
+    .top-seller-card p { font-size: 14px; color: #555; padding: 0 15px; }
 
-    /* Top Seller Section */
-    .top-sellers {
-      max-width: 900px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
+    footer { background-color: #0070d2; color: #fff; text-align: center; padding: 20px 0; margin-top: 50px; }
 
-    .top-sellers h2 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 30px;
-      color: #0070d2;
-    }
-
-    .carousel {
-      overflow: hidden;
-      position: relative;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .top-seller-card {
-      min-width: 100%;
-      box-sizing: border-box;
-      background: #fff;
-      text-align: center;
-      padding-bottom: 20px;
-    }
-
-    .top-seller-card img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-    }
-
-    .top-seller-card h3 {
-      margin: 15px 0 10px;
-      font-size: 20px;
-      color: #333;
-    }
-
-    .top-seller-card p {
-      font-size: 14px;
-      color: #555;
-      padding: 0 15px;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #0070d2;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
-      margin-top: 50px;
-    }
-
-    /* Responsive tweak: stack banner rows nicely */
     @media (max-width: 640px) {
-      .banner {
-        padding: 10px 16px;
-      }
-
-      .nav-buttons {
-        order: 3;
-        width: 100%;
-        justify-content: flex-start;
-      }
-
-      .search {
-        order: 2;
-      }
-
-      .cart {
-        order: 4;
-      }
+      .banner { padding: 10px 16px; }
+      .nav-buttons { order: 3; width: 100%; justify-content: flex-start; }
+      .search { order: 2; }
+      .cart { order: 4; }
     }
   </style>
 </head>
@@ -285,7 +132,8 @@
     <!-- 🔎 Search Box -->
     <form class="search" id="siteSearch" role="search" aria-label="Site search">
       <input id="searchInput" type="search" placeholder="Search products, e.g. headphones" autocomplete="off" />
-      <button type="submit" aria-label="Search">Search</button>
+      <!-- เปลี่ยนเป็น type="button" และใส่ id -->
+      <button id="searchBtn" type="button" aria-label="Search">Search</button>
     </form>
 
     <div class="cart">
@@ -360,21 +208,21 @@
     }
     setInterval(showNextSlide, 3000);
 
+    // ✅ กันการ submit ฟอร์ม (ป้องกัน refresh เมื่อกด Enter)
+    document.getElementById('siteSearch').addEventListener('submit', (e) => {
+      e.preventDefault();
+    });
 
-
-    // --- Search button (no refresh/redirect) ---
+    // ✅ ปุ่มธรรมดา ไม่ refresh/redirect
     const searchBtn = document.getElementById('searchBtn');
     const searchInput = document.getElementById('searchInput');
 
     searchBtn.addEventListener('click', () => {
       const q = (searchInput.value || '').trim();
-      console.log('ค่าที่กรอก:', q);
-      // ไม่ทำอะไรต่อ ตามที่ขอ (ไม่ redirect/ไม่ refresh)
+      console.log('search input:', q);
+      // ไม่ทำอย่างอื่นตามที่ขอ
     });
-
-
   </script>
 
 </body>
-
 </html>
