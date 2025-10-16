@@ -23,25 +23,25 @@
       background-color: #0070d2;
       color: #fff;
       display: flex;
-      justify-content: space-between;
+      gap: 16px;
       align-items: center;
       padding: 10px 40px;
-      /* padding ซ้าย-ขวา */
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
       z-index: 1000;
       box-sizing: border-box;
-      /* ให้ padding ไม่กระทบขนาด */
+      flex-wrap: wrap;
     }
-
 
     .banner h2 {
       margin: 0;
       font-size: 20px;
+      white-space: nowrap;
     }
 
     .nav-buttons {
       display: flex;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .nav-buttons button {
@@ -59,16 +59,44 @@
       background-color: #e0e0e0;
     }
 
+    /* Search box */
+    .search {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex: 1 1 320px; /* ขยายกินพื้นที่ตรงกลาง */
+      min-width: 240px;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+    }
+
+    .search button {
+      background-color: #ffb75c;
+      color: #1a1a1a;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .search button:hover {
+      background-color: #ffa531;
+    }
 
     .cart {
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
       position: relative;
-      margin-left: 20px;
-      /* เว้นระยะจาก nav-buttons */
+      margin-left: 4px;
       white-space: nowrap;
-      /* ป้องกัน cart หดบรรทัด */
     }
 
     .cart-count {
@@ -91,8 +119,7 @@
       align-items: center;
       color: #fff;
       text-align: center;
-      margin-top: 60px;
-      /* Banner height */
+      margin-top: 60px; /* Banner height */
     }
 
     .hero h1 {
@@ -172,7 +199,6 @@
       color: #0070d2;
     }
 
-    /* Carousel Container */
     .carousel {
       overflow: hidden;
       position: relative;
@@ -180,13 +206,11 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    /* Carousel Track (flex row) */
     .carousel-track {
       display: flex;
       transition: transform 0.5s ease-in-out;
     }
 
-    /* Cards inside carousel */
     .top-seller-card {
       min-width: 100%;
       box-sizing: border-box;
@@ -213,7 +237,6 @@
       padding: 0 15px;
     }
 
-
     /* Footer */
     footer {
       background-color: #0070d2;
@@ -222,6 +245,24 @@
       padding: 20px 0;
       margin-top: 50px;
     }
+
+    /* Responsive tweak: stack banner rows nicely */
+    @media (max-width: 640px) {
+      .banner {
+        padding: 10px 16px;
+      }
+      .nav-buttons {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .search {
+        order: 2;
+      }
+      .cart {
+        order: 4;
+      }
+    }
   </style>
 </head>
 
@@ -229,15 +270,24 @@
   <!-- Banner -->
   <div class="banner">
     <h2>Home</h2>
+
     <div class="nav-buttons">
       <button onclick="window.location.href='https://natthamons-test.github.io/demo-personalization/'">Home</button>
       <button onclick="window.location.href='products/'">Product</button>
       <button onclick="window.location.href='contact/'">Contact Us</button>
     </div>
+
+    <!-- 🔎 Search Box -->
+    <form class="search" id="siteSearch" role="search" aria-label="Site search">
+      <input id="searchInput" type="search" placeholder="Search products, e.g. headphones" autocomplete="off" />
+      <button type="submit" aria-label="Search">Search</button>
+    </form>
+
     <div class="cart">
       🛒 Cart <span class="cart-count" id="cartCount">0</span>
     </div>
   </div>
+
   <div class="mcp-banner"></div>
 
   <!-- Hero Section -->
@@ -289,26 +339,42 @@
     </div>
   </section>
 
-
   <!-- Footer -->
   <footer>
     &copy; 2025 My Electronics Store. All Rights Reserved.
   </footer>
 
   <script>
+    // --- Carousel ---
     const track = document.querySelector('.carousel-track');
     const slides = document.querySelectorAll('.top-seller-card');
     let index = 0;
-
     function showNextSlide() {
       index = (index + 1) % slides.length;
       track.style.transform = `translateX(-${index * 100}%)`;
     }
-
-    // auto slide every 3 seconds
     setInterval(showNextSlide, 3000);
+
+    // --- Search redirect ---
+    const searchForm = document.getElementById('siteSearch');
+    const searchInput = document.getElementById('searchInput');
+
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = (searchInput.value || '').trim();
+      // ถ้าไม่ได้พิมพ์อะไร ให้ไปหน้า products เฉย ๆ
+      if (!q) {
+        window.location.href = 'products/';
+        return;
+      }
+      const url = new URL('products/', window.location.origin + window.location.pathname);
+      // จัดการกรณี path ปัจจุบันเป็นไฟล์ index.html ให้สร้าง URL ถูกต้อง
+      const base = window.location.href.endsWith('/') ? window.location.href : window.location.href.replace(/[^/]*$/, '');
+      const target = new URL('products/', base);
+      target.searchParams.set('q', q);
+      window.location.href = target.toString();
+    });
   </script>
 
 </body>
-
 </html>
