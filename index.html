@@ -64,7 +64,8 @@
       display: flex;
       gap: 8px;
       align-items: center;
-      flex: 1 1 320px; /* ขยายกินพื้นที่ตรงกลาง */
+      flex: 1 1 320px;
+      /* ขยายกินพื้นที่ตรงกลาง */
       min-width: 240px;
     }
 
@@ -119,7 +120,8 @@
       align-items: center;
       color: #fff;
       text-align: center;
-      margin-top: 60px; /* Banner height */
+      margin-top: 60px;
+      /* Banner height */
     }
 
     .hero h1 {
@@ -251,14 +253,17 @@
       .banner {
         padding: 10px 16px;
       }
+
       .nav-buttons {
         order: 3;
         width: 100%;
         justify-content: flex-start;
       }
+
       .search {
         order: 2;
       }
+
       .cart {
         order: 4;
       }
@@ -355,26 +360,21 @@
     }
     setInterval(showNextSlide, 3000);
 
-    // --- Search redirect ---
-    const searchForm = document.getElementById('siteSearch');
+
+
+    // --- Search button (no refresh/redirect) ---
+    const searchBtn = document.getElementById('searchBtn');
     const searchInput = document.getElementById('searchInput');
 
-    searchForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    searchBtn.addEventListener('click', () => {
       const q = (searchInput.value || '').trim();
-      // ถ้าไม่ได้พิมพ์อะไร ให้ไปหน้า products เฉย ๆ
-      if (!q) {
-        window.location.href = 'products/';
-        return;
-      }
-      const url = new URL('products/', window.location.origin + window.location.pathname);
-      // จัดการกรณี path ปัจจุบันเป็นไฟล์ index.html ให้สร้าง URL ถูกต้อง
-      const base = window.location.href.endsWith('/') ? window.location.href : window.location.href.replace(/[^/]*$/, '');
-      const target = new URL('products/', base);
-      target.searchParams.set('q', q);
-      window.location.href = target.toString();
+      console.log('ค่าที่กรอก:', q);
+      // ไม่ทำอะไรต่อ ตามที่ขอ (ไม่ redirect/ไม่ refresh)
     });
+
+
   </script>
 
 </body>
+
 </html>
