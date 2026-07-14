@@ -4,9 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <title>Homepage</title>
-  <script defer src="https://cdn.c360a.salesforce.com/beacon/c360a/07b49b96-460a-457b-b129-42d14673c933/scripts/c360a.min.js?version=latest"></script>
-   <!-- <script defer
-    src="https://cdn.c360a.salesforce.com/beacon/c360a/632ac9b1-6bb4-40e9-ace7-f8f2065f7d2d/scripts/c360a.min.js"></script> -->
+<link rel="preload"
+        href="https://execution-ci360.digitalalchemy.net.au/js/ot2.min.js"
+        as="script" />
+
+  <script>
+  (function(ci, a) {
+    window[ci] || function() {
+      var ef = window[ci] = function() {
+        return ef.q.push(arguments);
+      };
+      ef.q = [];
+      ef.a = a || {};
+    }();
+  })
+  ('ci360', {
+    tenantId: '7c8ad2d9fc00010d658e3c18'
+  });
+  </script>
+
+  <script
+    async
+    data-efname="ci360"
+    src="https://execution-ci360.digitalalchemy.net.au/js/ot2.min.js"
+    id="ob-script-async">
+  </script>
 
   <style>
     body {
